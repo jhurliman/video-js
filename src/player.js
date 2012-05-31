@@ -39,8 +39,8 @@ _V_.Player = _V_.Component.extend({
     el.setAttribute("width", initWidth);
     el.setAttribute("height", initHeight);
     // Enforce with CSS since width/height attrs don't work on divs
-    el.style.width = initWidth+"px";
-    el.style.height = initHeight+"px";
+    el.style.width = initWidth+(initWidth.indexOf('%')===false?"px":'');
+    el.style.height = initHeight+(initHeight.indexOf('%')===false?"px":'');
     // Remove width/height attrs from tag so CSS can make it 100% width/height
     tag.removeAttribute("width");
     tag.removeAttribute("height");
